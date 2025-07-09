@@ -1,0 +1,96 @@
+/* Estilos básicos para o projeto Meu Lugar Aconchegante */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F6F1E7; /* off-white creme */
+  font-family: Georgia, serif;
+  color: #704214; /* marrom aconchegante */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #704214;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #6B4423; /* marrom escuro */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #5a371a;
+  cursor: pointer;
+}
+
+button {
+  background-color: #6B4423;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: Georgia, serif;
+}
+
+button:hover {
+  background-color: #5a371a;
+}
+
+.container {
+  max-width: 1343px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 1.2rem;
+  color: #8B5E34; /* tom mais claro de marrom */
+}
+
+img {
+  border-radius: 24px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollbar customizada opcional */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #6B4423;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F1E7;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}

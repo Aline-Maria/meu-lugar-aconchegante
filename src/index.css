@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aplica o fundo branco e texto café no body */
+body {
+  @apply bg-neve text-cafe font-serif;
+}
