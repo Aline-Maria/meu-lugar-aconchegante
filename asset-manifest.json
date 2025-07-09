@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/meu-lugar-aconchegante/static/css/main.be732843.css",
+    "main.js": "/meu-lugar-aconchegante/static/js/main.9fc85459.js",
+    "index.html": "/meu-lugar-aconchegante/index.html",
+    "main.be732843.css.map": "/meu-lugar-aconchegante/static/css/main.be732843.css.map",
+    "main.9fc85459.js.map": "/meu-lugar-aconchegante/static/js/main.9fc85459.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be732843.css",
+    "static/js/main.9fc85459.js"
+  ]
+}
