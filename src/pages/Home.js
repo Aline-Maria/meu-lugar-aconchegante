@@ -49,38 +49,28 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-neve min-h-screen text-cafe py-8 px-4">
-      {/* Cabeçalho igual à imagem enviada */}
-      <header className="bg-[#A17C4B] py-6 shadow-md">
-        <h1 className="text-4xl font-bold text-center text-neve">
-          Meu Lugar Aconchegante
-        </h1>
-      </header>
-
-      {/* Conteúdo principal */}
-      <main className="max-w-[1343px] mx-auto flex flex-col gap-12 mt-8">
-        {visiblePosts.map((post) => (
-          <div
-            key={post.id}
-            className="w-[1343px] h-[466px] flex rounded-3xl shadow-lg overflow-hidden"
-            style={{ backgroundColor: '#F6F1E7' }} // areia no fundo do card
-          >
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-1/2 h-full object-cover"
-            />
-            <div className="w-1/2 p-12 flex flex-col items-start justify-start">
-              <h2 className="text-4xl font-bold">{post.title}</h2>
-            </div>
+    <main className="bg-[#F6F1E7] min-h-screen text-[#7a5e3c] py-8 px-4 flex flex-col items-center gap-12">
+      {visiblePosts.map((post) => (
+        <article
+          key={post.id}
+          className="w-[1343px] h-[466px] flex rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
+        >
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-1/2 h-full object-cover"
+          />
+          <div className="w-1/2 p-12 flex flex-col items-start justify-start">
+            <h2 className="text-4xl font-bold mb-4">{post.title}</h2>
+            {/* Aqui você pode adicionar texto adicional abaixo do título, se quiser */}
           </div>
-        ))}
-        {isEnd && (
-          <p className="text-center text-lg opacity-70 mt-4">
-            Você chegou ao final da página, obrigada por visitar meu lugar aconchegante 🌷
-          </p>
-        )}
-      </main>
-    </div>
+        </article>
+      ))}
+      {isEnd && (
+        <p className="text-center text-lg opacity-70 mt-4 max-w-[600px]">
+          Você chegou ao final da página, obrigada por visitar meu lugar aconchegante 🌷
+        </p>
+      )}
+    </main>
   );
 }
