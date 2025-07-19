@@ -5,10 +5,13 @@ export default function Post({ title, image, id }) {
   const navigate = useNavigate();
 
   function handleKeyDown(e) {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
       navigate(`/post/${id}`);
     }
   }
+
+  const imagemFinal = id === 1 ? '/assets/card1.png' : (image || '/assets/default.png');
 
   return (
     <div
@@ -20,13 +23,13 @@ export default function Post({ title, image, id }) {
     >
       <div className="md:w-1/2 overflow-hidden rounded-2xl">
         <img
-          src={image}
+          src={imagemFinal}
           alt={`Imagem do post: ${title}`}
           className="w-full h-[400px] object-cover rounded-2xl transition-transform duration-500 hover:scale-105"
         />
       </div>
       <div className="md:w-1/2 flex items-center justify-center p-6">
-        <h2 className="text-3xl font-bold text-[#A17C4B] text-center md:text-left">
+        <h2 className="text-3xl font-bold text-[#A17C4B] text-left">
           {title}
         </h2>
       </div>

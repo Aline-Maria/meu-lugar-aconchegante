@@ -48,7 +48,7 @@ const styles = {
     color: '#F6F1E7', // off-white creme
     fontFamily: 'Georgia, serif',
     fontWeight: 'bold',
-    fontSize: '2.5rem',
+    fontSize: '1.75rem',
   },
   nav: {
     display: 'flex',

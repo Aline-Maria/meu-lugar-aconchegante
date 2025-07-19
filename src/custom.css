@@ -1,0 +1,88 @@
+/* custom.css – Estilos adicionais para Meu Lugar Aconchegante */
+
+:root {
+  --global-body-font-family: 'Gwendolyn', cursive;
+  --global-palette3: #a06342; /* cor para títulos */
+
+  --architects-font-family: 'Architects Daughter', cursive; /* nova fonte */
+  --black-color: #000000;
+}
+
+/* Classe para aplicar a fonte global */
+.font-global-body {
+  font-family: var(--global-body-font-family);
+}
+
+/* Classe para aplicar a cor global do título */
+.text-global-palette3 {
+  color: var(--global-palette3);
+}
+
+/* Nova classe para aplicar a fonte Architects Daughter com cor preta */
+.font-architects {
+  font-family: var(--architects-font-family);
+  color: var(--black-color);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #6B4423;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F1E7;
+}
+
+/* Removido: regra global que atrapalhava imagens nos cards */
+/* Se necessário, use img.img-global para estilos específicos */
+img.img-global {
+  border-radius: 24px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Estilo geral para botões de interação (como cards clicáveis) */
+div[role='button'] {
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+div[role='button']:focus,
+div[role='button']:hover {
+  box-shadow: 0 10px 20px rgba(193, 160, 90, 0.5); /* sombra dourada suave */
+}
+
+/* Evite sobrepor o estilo de h3 do Tailwind.
+   Se precisar personalizar, prefira uma classe utilitária. */
+h3 {
+  font-size: 1.5rem; /* 24px */
+  font-family: 'Gwendolyn', cursive;
+  color: var(--global-palette3);
+  margin: 0;
+  padding: 1.5rem 0;
+}
+
+/* Removido: regra de arredondamento manual para imagem dentro de card
+   Isso causava cantos quadrados ou conflito com Tailwind */
+ 
+/* .div[role='button'] > img {
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+} */
+
+/* Cores utilitárias */
+.bg-neve {
+  background-color: #F6F1E7;
+}
+
+.text-cafe {
+  color: #5C4033;
+}

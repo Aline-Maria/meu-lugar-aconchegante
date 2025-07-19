@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Aplica o fundo branco e texto café no body */
-body {
-  @apply bg-neve text-cafe font-serif;
-}
+@import './custom.css';
+@import "@fontsource/gwendolyn";

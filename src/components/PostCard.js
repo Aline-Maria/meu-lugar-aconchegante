@@ -1,54 +1,54 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const posts = [
-  {
-    id: 1,
-    title: 'Cantinho Aconchegante',
-    image:
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 2,
-    title: 'Varanda Tranquila',
-    image:
-      'https://images.unsplash.com/photo-1522098543979-ffc7f79d7f43?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 3,
-    title: 'Sala com Lareira',
-    image:
-      'https://images.unsplash.com/photo-1549187774-b4e9e9d6ac6a?auto=format&fit=crop&w=800&q=80',
-  },
-];
+export default function PostCard({ onClick }) {
+  const fullText = `Este espaço foi pensado para transmitir leveza, com muitas plantas, luz natural e detalhes em madeira clara. 
+É pra cá que eu venho quando minha alma pede um descanso. Eu que montei tudo isso: as plantas, minha poltrona marrom que já começou a desbotar, meu sofá de segunda mão... Eu deito neste sofá, olho pela janela e vejo o céu: não um muro com a tinta descascando, não um janela (e a vida) do vizinho. É o céu! Minhas plantas se abrem. Quem cria plantas sabe que elas se abrem com a luz do sol. Lá fora também tem árvores e o cheiro do ar fica uma delícia quando chove, mas hoje eu vejo o dourado do crepúsculo. Aqui eu estou protegida, eu posso respirar num ritmo mais calmo, eu posso ouvir as minhas músicas. E eu nem sei por que comprei essa caixa de som enorme, não gosto de barulho, deixo o som fica baixinho e minha mente vai se acalmando… se acalmando… Eu sinto meu coração batendo, o céu está ficando cada vez mais escuro. Tudo deu certo, no fim das contas. Eu tenho o meu lugar, é do jeito que eu sonhei. Não sei se é muito cedo pra dizer isso, mas eu estou feliz!`;
 
-export default function PostsList() {
-  const navigate = useNavigate();
+  const charLimit = 500;
+  const truncatedText = fullText.length > charLimit ? fullText.slice(0, charLimit).trimEnd() + "..." : fullText;
 
   return (
-    <div className="max-w-[1400px] mx-auto my-8 flex flex-col gap-12 px-4">
-      {posts.map(({ id, title, image }) => (
-        <div
-          key={id}
-          className="flex items-center bg-[#F6F1E7] rounded-3xl shadow-lg max-w-[1343px] h-[466px] overflow-hidden px-12"
-        >
-          <img
-            src={image}
-            alt={title}
-            className="w-1/2 h-full object-cover rounded-l-3xl"
-          />
-          <div className="w-1/2 p-8 flex flex-col justify-between h-full">
-            <h3 className="text-4xl text-[#704214] mt-0">{title}</h3>
-            <button
-              onClick={() => navigate(`/post/${id}`)}
-              type="button"
-              className="self-start px-6 py-2 bg-[#A17C4B] text-[#F6F1E7] rounded-lg cursor-pointer text-lg transition-colors duration-300 hover:bg-[#8A6638]"
+    <div
+      role="button"
+      tabIndex={0}
+      className="flex max-w-[1343px] h-[466px] mx-auto bg-neve shadow-none cursor-pointer overflow-hidden rounded-2xl"
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          onClick();
+        }
+      }}
+    >
+      {/* LADO ESQUERDO - IMAGEM */}
+      <div className="w-1/2 h-full overflow-hidden">
+        <img
+          src={process.env.PUBLIC_URL + '/assets/card1.png'}
+          alt="Imagem do post"
+          className="w-full h-full object-cover object-center"
+          draggable={false}
+        />
+      </div>
+
+      {/* LADO DIREITO - TÍTULO E TEXTO */}
+      <div className="w-1/2 h-full flex flex-col justify-start px-10 py-6 gap-4 bg-neve overflow-hidden">
+        <h1 className="text-5xl font-gwendolyn font-bold leading-tight text-cafe">
+          Uma sala iluminada e cheia de plantas
+        </h1>
+
+        <p className="text-cafe font-hand text-[18px] leading-relaxed">
+          {truncatedText}{" "}
+          {fullText.length > charLimit && (
+            <a
+              href="/meu-lugar-aconchegante/post/1"
+              className="font-bold underline text-cafe cursor-pointer"
+              aria-label="Ver mais detalhes do post"
+              onClick={(e) => e.stopPropagation()} // evita disparo do clique geral do card
             >
-              Ver mais...
-            </button>
-          </div>
-        </div>
-      ))}
+              ver mais
+            </a>
+          )}
+        </p>
+      </div>
     </div>
   );
 }

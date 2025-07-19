@@ -4,11 +4,30 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        neve: '#FFFFFF',     // branco puro
-        cafe: '#704214',     // marrom café (texto)
-        // marromClaro removido daqui conforme pedido
+        neve: '#F6F1E7',
+        cafe: '#5C4033',
+        creme: '#FFF5E1',
+        dourado: '#C1A05A',
+        slick: '#a06342',
+      },
+      width: {
+        '940': '940px',
+      },
+      height: {
+        '326': '326px',
+      },
+      fontFamily: {
+        gwendolyn: ['Gwendolyn', 'cursive'],
+        architects: ['Architects Daughter', 'cursive'],
+      },
+      fontSize: {
+        '3.5xl': '2.44rem',
+        'lg-plus': '1.35rem',
+        '2.5xl': '2rem',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }

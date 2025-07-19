@@ -17,6 +17,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
+/* Atualização para h3 com fonte menor e personalizada */
+h3 {
+  font-size: 2rem !important; /* 32px */
+  font-family: 'Gwendolyn', cursive !important;
+  color: #a06342 !important; /* mesma cor var(--global-palette3) */
+  margin: 0 !important;
+  padding: 1.5rem 0 !important;
+}
+
 a {
   color: #6B4423; /* marrom escuro */
   text-decoration: none;
@@ -60,7 +69,8 @@ p {
   color: #8B5E34; /* tom mais claro de marrom */
 }
 
-img {
+/* Aplicar border-radius somente para imagens que NÃO são do card */
+img.img-global {
   border-radius: 24px;
   max-width: 100%;
   height: auto;
@@ -92,5 +102,10 @@ img {
   button {
     padding: 0.5rem 1rem;
     font-size: 1rem;
+  }
+
+  /* Responsividade para h3 */
+  h3 {
+    font-size: 1.5rem !important; /* 24px em telas menores */
   }
 }
