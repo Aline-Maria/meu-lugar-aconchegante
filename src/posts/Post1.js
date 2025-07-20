@@ -180,7 +180,7 @@ export default function Post1({ fundocardWidth = 570, fundocardHeight = 500, tex
 
             <p>
               Eu deito neste sofá, olho pela janela e vejo o céu: não um muro com a tinta descascando,
-              não um janela (e a vida) do vizinho. É o céu! Minhas plantas se abrem. Quem cria plantas sabe
+              não uma janela (e a vida) do vizinho. É o céu! Minhas plantas se abrem. Quem cria plantas sabe
               que elas se abrem com a luz do sol. Lá fora também tem árvores e o cheiro do ar fica uma delícia
               quando chove, mas hoje eu vejo o dourado do crepúsculo.
             </p>
