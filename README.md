@@ -71,5 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 =======
 # meu-lugar-aconchegante
-Um site para abrir quando você procurando por descanso, inspiração, textos do fundo da alma e colagens bonitas =)
+Um site para abrir quando você procurando por descanso, inspiração, textos do fundo da alma e colagens bonitas 
 >>>>>>> 652e3c5398de1ac9ca72d0c96b6bdc954a39f335
