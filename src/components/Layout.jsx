@@ -1,19 +1,7 @@
-import { useLocation, Routes } from 'react-router-dom';
-import Footer from './Footer';
-
 function Layout() {
-  const location = useLocation();
-
-  // Regex para detectar rotas do tipo "/post/123" (post seguido só de números)
-  const isPostNumberRoute = /^\/post\/\d+$/.test(location.pathname);
-
   return (
     <div className="min-h-screen bg-white text-slick font-serif">
-      <header
-        className={`bg-white text-slick shadow-md ${
-          isPostNumberRoute ? '' : 'sticky top-0 z-50'
-        }`}
-      >
+      <header className="bg-white text-slick shadow-md">
         {/* seu conteúdo do header aqui */}
       </header>
 
@@ -27,5 +15,3 @@ function Layout() {
     </div>
   );
 }
-
-export default Layout;

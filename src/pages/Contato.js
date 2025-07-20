@@ -1,11 +1,11 @@
-import React from 'react';
 import ContatoForm from '../components/ContatoForm';
 
 export default function Contato() {
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-creme rounded-xl shadow-md text-cafe">
-      <h2 className="text-3xl font-bold mb-6">Você me encontra aqui:</h2>
-      <ul className="mb-6 list-disc list-inside space-y-2 text-lg">
+    <div className="max-w-3xl mx-auto p-6 sm:p-8 bg-creme rounded-xl shadow-md text-cafe">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-6">Você me encontra aqui:</h2>
+
+      <ul className="mb-6 list-disc list-inside space-y-3 text-lg sm:text-xl">
         <li>
           Por{' '}
           <a
@@ -50,7 +50,7 @@ export default function Contato() {
         </li>
       </ul>
 
-      <p className="mb-6 text-lg">Ou envie uma mensagem pelo formulário:</p>
+      <p className="mb-6 text-lg sm:text-xl">Ou envie uma mensagem pelo formulário:</p>
 
       <ContatoForm />
     </div>

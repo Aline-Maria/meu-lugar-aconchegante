@@ -54,7 +54,7 @@ export default function Home() {
       {visibleExtraPosts.map(post => (
         <div
           key={post.id}
-          className="max-w-[1343px] w-full cursor-pointer"
+          className="w-full max-w-[90%] md:max-w-[1343px] cursor-pointer"
           onClick={() => navigate(`/post/${post.id}`)}
           role="button"
           tabIndex={0}

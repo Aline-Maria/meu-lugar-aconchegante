@@ -1,4 +1,6 @@
 import React from 'react';
+import { FiMail } from 'react-icons/fi';
+import { FaLinkedin, FaGithub, FaPinterest } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -17,46 +19,42 @@ export default function Footer() {
         {/* Coluna 2 - Você me encontra aqui */}
         <div className="md:flex-1">
           <h2 className="font-bold text-2xl mb-4">Você me encontra aqui</h2>
-          <p className="mb-6 max-w-xs leading-relaxed">
-            Por{' '}
+          <nav className="flex flex-col gap-4 max-w-xs">
             <a
               href="mailto:aline.tecnologiadainformacao@gmail.com"
-              className="underline hover:text-dourado transition-colors"
+              className="flex items-center gap-3 underline hover:text-dourado transition-colors"
             >
-              e-mail
+              <FiMail size={24} />
+              <span>e-mail</span>
             </a>
-            <br />
-            no{' '}
             <a
               href="https://www.linkedin.com/in/aline-maria-b1b82520b/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-dourado transition-colors"
+              className="flex items-center gap-3 underline hover:text-dourado transition-colors"
             >
-              LinkedIn
+              <FaLinkedin size={24} />
+              <span>LinkedIn</span>
             </a>
-            <br />
-            no{' '}
             <a
               href="https://github.com/Aline-Maria"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-dourado transition-colors"
+              className="flex items-center gap-3 underline hover:text-dourado transition-colors"
             >
-              GitHub
+              <FaGithub size={24} />
+              <span>GitHub</span>
             </a>
-            <br />
-            e também no{' '}
             <a
               href="https://br.pinterest.com/MeuCantinhoAconchegante/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-dourado transition-colors"
+              className="flex items-center gap-3 underline hover:text-dourado transition-colors"
             >
-              Pinterest
+              <FaPinterest size={24} />
+              <span>Pinterest</span>
             </a>
-            .
-          </p>
+          </nav>
         </div>
       </div>
     </footer>

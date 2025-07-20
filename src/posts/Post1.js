@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 const icons = [
   { id: 1, src: process.env.PUBLIC_URL + '/assets/janelafechada.png', width: 280, height: 300, x: -16, y: -25 },
@@ -14,9 +14,16 @@ const icons = [
   { id: 11, src: process.env.PUBLIC_URL + '/assets/caixasom.png', width: 120, height: 130, x: 135, y: 185 },
 ];
 
+const textSizeMap = {
+  sm: "14px",
+  base: "16px",
+  lg: "18px",
+  xl: "20px",
+  "2xl": "24px",
+};
+
 export default function Post1({ fundocardWidth = 570, fundocardHeight = 500, textSize = "lg" }) {
   const containerRef = useRef(null);
-
   const [positions, setPositions] = useState(() =>
     icons.reduce((acc, icon) => {
       acc[icon.id] = { x: icon.x, y: icon.y };
@@ -27,30 +34,49 @@ export default function Post1({ fundocardWidth = 570, fundocardHeight = 500, tex
   const [draggingId, setDraggingId] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
-  function handleMouseDown(e, id) {
+  useEffect(() => {
+    function onPointerMove(e) {
+      if (draggingId === null) return;
+      if (!containerRef.current) return;
+
+      const containerRect = containerRef.current.getBoundingClientRect();
+
+      // Calcula posição relativa ao container
+      const newX = e.clientX - containerRect.left - dragOffset.x;
+      const newY = e.clientY - containerRect.top - dragOffset.y;
+
+      setPositions((prev) => ({
+        ...prev,
+        [draggingId]: { x: newX, y: newY },
+      }));
+    }
+
+    function onPointerUp() {
+      setDraggingId(null);
+    }
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+
+    return () => {
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+    };
+  }, [draggingId, dragOffset]);
+
+  function handlePointerDown(e, id) {
+    if (id === 1 || id === 9) return; // fixos
+
     e.preventDefault();
-    setDraggingId(id);
     const rect = e.currentTarget.getBoundingClientRect();
+    setDraggingId(id);
     setDragOffset({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     });
-  }
 
-  function handleMouseMove(e) {
-    if (draggingId === null) return;
-    const containerRect = containerRef.current.getBoundingClientRect();
-    const newX = e.clientX - containerRect.left - dragOffset.x;
-    const newY = e.clientY - containerRect.top - dragOffset.y;
-
-    setPositions((prev) => ({
-      ...prev,
-      [draggingId]: { x: newX, y: newY },
-    }));
-  }
-
-  function handleMouseUp() {
-    setDraggingId(null);
+    // Para touch devices não disparar scroll ao arrastar
+    e.currentTarget.setPointerCapture(e.pointerId);
   }
 
   function getZIndex(id) {
@@ -105,7 +131,7 @@ export default function Post1({ fundocardWidth = 570, fundocardHeight = 500, tex
         <div className="flex flex-col md:flex-row gap-10 items-start">
 
           {/* LADO ESQUERDO: Imagem e legenda */}
-          <div className="md:w-1/2 w-full">
+          <div className="md:w-1/2 w-full flex flex-col items-center md:items-start">
             <div
               ref={containerRef}
               className="relative mx-auto overflow-hidden"
@@ -114,8 +140,6 @@ export default function Post1({ fundocardWidth = 570, fundocardHeight = 500, tex
                 height: fundocardHeight,
                 userSelect: draggingId ? 'none' : 'auto',
               }}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
             >
               <img
                 src={process.env.PUBLIC_URL + '/assets/fundocard1.png'}
@@ -139,7 +163,7 @@ export default function Post1({ fundocardWidth = 570, fundocardHeight = 500, tex
                     key={id}
                     src={src}
                     alt={`Ícone ${id}`}
-                    onMouseDown={isFixed ? undefined : (e) => handleMouseDown(e, id)}
+                    onPointerDown={isFixed ? undefined : (e) => handlePointerDown(e, id)}
                     style={{
                       position: 'absolute',
                       left: pos.x,
@@ -157,8 +181,8 @@ export default function Post1({ fundocardWidth = 570, fundocardHeight = 500, tex
             </div>
 
             {/* Legenda abaixo da imagem */}
-            <div className="mt-4 max-w-[570px] mx-auto">
-              <p className="text-base font-bold text-cafe text-left">
+            <div className="mt-4 max-w-[570px] text-center md:text-left">
+              <p className="text-base font-bold text-cafe">
                 Que tal redecorar esta sala? Clique e arraste para mudar os objetos de lugar 💡
               </p>
             </div>
@@ -199,12 +223,3 @@ export default function Post1({ fundocardWidth = 570, fundocardHeight = 500, tex
     </>
   );
 }
-
-// Mapeamento simples de tamanhos para fontSize CSS em pixels (pode ajustar conforme quiser)
-const textSizeMap = {
-  sm: "14px",
-  base: "16px",
-  lg: "18px",
-  xl: "20px",
-  "2xl": "24px",
-};

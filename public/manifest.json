@@ -1,0 +1,9 @@
+{
+  "short_name": "Aconchego",
+  "name": "Meu Lugar Aconchegante",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Um lugar para minhas colagens",
+  "icons": []
+}

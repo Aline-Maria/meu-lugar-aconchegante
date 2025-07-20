@@ -1,69 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Função para destacar o link ativo
   const isActive = (path) => location.pathname === path;
 
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
-    <header style={styles.header}>
-      <h1 style={styles.title}>Meu Lugar Aconchegante</h1>
-      <nav style={styles.nav}>
-        <Link to="/" style={{ ...styles.link, ...(isActive('/') ? styles.activeLink : {}) }}>
-          Início
-        </Link>
-        <Link to="/posts" style={{ ...styles.link, ...(isActive('/posts') ? styles.activeLink : {}) }}>
-          Posts
-        </Link>
-        <Link to="/galeria" style={{ ...styles.link, ...(isActive('/galeria') ? styles.activeLink : {}) }}>
-          Galeria
-        </Link>
-        <Link to="/sobre" style={{ ...styles.link, ...(isActive('/sobre') ? styles.activeLink : {}) }}>
-          Sobre
-        </Link>
-        <Link to="/contato" style={{ ...styles.link, ...(isActive('/contato') ? styles.activeLink : {}) }}>
-          Contato
-        </Link>
-      </nav>
+    <header className="bg-[#A17C4B] px-6 py-4 shadow-md z-50">
+      <div className="flex items-center justify-between">
+        <h1 className="text-[#F6F1E7] font-bold text-2xl font-serif">
+          Meu Lugar Aconchegante
+        </h1>
+
+        {/* Botão do menu (mobile) */}
+        <button
+          className="md:hidden text-[#F6F1E7]"
+          onClick={toggleMenu}
+          aria-label="Abrir menu"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Menu desktop */}
+        <nav className="hidden md:flex gap-6">
+          <NavLink to="/" label="Início" active={isActive('/')} />
+          <NavLink to="/posts" label="Posts" active={isActive('/posts')} />
+          <NavLink to="/galeria" label="Galeria" active={isActive('/galeria')} />
+          <NavLink to="/sobre" label="Sobre" active={isActive('/sobre')} />
+          <NavLink to="/contato" label="Contato" active={isActive('/contato')} />
+        </nav>
+      </div>
+
+      {/* Menu mobile */}
+      {isOpen && (
+        <nav className="mt-4 flex flex-col gap-4 md:hidden">
+          <NavLink to="/" label="Início" active={isActive('/')} onClick={() => setIsOpen(false)} />
+          <NavLink to="/posts" label="Posts" active={isActive('/posts')} onClick={() => setIsOpen(false)} />
+          <NavLink to="/galeria" label="Galeria" active={isActive('/galeria')} onClick={() => setIsOpen(false)} />
+          <NavLink to="/sobre" label="Sobre" active={isActive('/sobre')} onClick={() => setIsOpen(false)} />
+          <NavLink to="/contato" label="Contato" active={isActive('/contato')} onClick={() => setIsOpen(false)} />
+        </nav>
+      )}
     </header>
   );
 }
 
-const styles = {
-  header: {
-    position: 'sticky',
-    top: 0,
-    zIndex: 1000,
-    backgroundColor: '#A17C4B', // marrom claro da paleta oficial
-    padding: '1.5rem 3rem',
-    boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  title: {
-    margin: 0,
-    color: '#F6F1E7', // off-white creme
-    fontFamily: 'Georgia, serif',
-    fontWeight: 'bold',
-    fontSize: '1.75rem',
-  },
-  nav: {
-    display: 'flex',
-    gap: '1.5rem',
-  },
-  link: {
-    color: '#F6F1E7',
-    textDecoration: 'none',
-    fontWeight: '600',
-    fontSize: '1.1rem',
-    fontFamily: 'Georgia, serif',
-    transition: 'color 0.3s ease',
-  },
-  activeLink: {
-    borderBottom: '2px solid #F6F1E7',
-    fontWeight: 'bold',
-  },
-};
+function NavLink({ to, label, active, onClick }) {
+  return (
+    <Link
+      to={to}
+      onClick={onClick}
+      className={`text-[#F6F1E7] font-semibold text-base font-serif transition duration-300 pb-1 ${
+        active ? 'border-b-2 border-[#F6F1E7] font-bold' : 'hover:text-white'
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}

@@ -4,16 +4,21 @@ import emailjs from 'emailjs-com';
 export default function ContatoForm() {
   const form = useRef();
   const [status, setStatus] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setStatus('');
 
     emailjs.sendForm('service_5xsh2w9', 'template_42gia3q', form.current, 'EtU3UPioVgNjUL3AG')
-      .then((result) => {
+      .then(() => {
           setStatus('Mensagem enviada com sucesso! Obrigada 😊');
           form.current.reset();
-      }, (error) => {
+          setLoading(false);
+      }, () => {
           setStatus('Erro ao enviar a mensagem. Tente novamente mais tarde.');
+          setLoading(false);
       });
   };
 
@@ -27,6 +32,8 @@ export default function ContatoForm() {
           placeholder="Seu nome"
           required
           className="p-3 rounded border border-cafe focus:outline-none focus:ring-2 focus:ring-dourado"
+          disabled={loading}
+          aria-label="Seu nome"
         />
         <input
           type="email"
@@ -34,6 +41,8 @@ export default function ContatoForm() {
           placeholder="Seu email"
           required
           className="p-3 rounded border border-cafe focus:outline-none focus:ring-2 focus:ring-dourado"
+          disabled={loading}
+          aria-label="Seu email"
         />
         <textarea
           name="message"
@@ -41,12 +50,19 @@ export default function ContatoForm() {
           required
           rows="5"
           className="p-3 rounded border border-cafe focus:outline-none focus:ring-2 focus:ring-dourado"
+          disabled={loading}
+          aria-label="Sua mensagem"
         />
-        <button type="submit" className="bg-cafe text-white py-3 rounded hover:bg-dourado transition-colors">
-          Enviar
+        <button
+          type="submit"
+          className="bg-cafe text-white py-3 rounded hover:bg-dourado transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          disabled={loading}
+          aria-busy={loading}
+        >
+          {loading ? 'Enviando...' : 'Enviar'}
         </button>
       </form>
-      {status && <p className="mt-4 text-center">{status}</p>}
+      {status && <p className="mt-4 text-center" role="alert">{status}</p>}
     </div>
   );
 }
