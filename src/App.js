@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Galeria from './pages/Galeria';
 import Sobre from './pages/Sobre';
@@ -12,8 +12,7 @@ import { Link } from 'react-router-dom';
 function Layout() {
   const location = useLocation();
 
-  // Como o basename é "/meu-lugar-aconchegante", location.pathname não inclui o basename
-  // Oculta cabeçalho para todas as rotas que começam com "/post/"
+  // Oculta cabeçalho para rotas que começam com "/post/"
   const hideHeader = location.pathname.startsWith('/post/');
 
   return (
@@ -53,7 +52,7 @@ function Layout() {
 
 export default function App() {
   return (
-    <Router basename="/meu-lugar-aconchegante">
+    <Router>
       <Layout />
     </Router>
   );
