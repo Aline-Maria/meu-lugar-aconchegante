@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.07512e30.css",
-    "main.js": "/static/js/main.86f44006.js",
-    "static/media/gwendolyn-latin-400-normal.woff2": "/static/media/gwendolyn-latin-400-normal.25ae21e5392ad073ca8f.woff2",
-    "static/media/gwendolyn-latin-ext-400-normal.woff2": "/static/media/gwendolyn-latin-ext-400-normal.f550854062ce36ec39a8.woff2",
-    "static/media/gwendolyn-latin-400-normal.woff": "/static/media/gwendolyn-latin-400-normal.3e89b38c04fcf572f7cd.woff",
-    "static/media/gwendolyn-latin-ext-400-normal.woff": "/static/media/gwendolyn-latin-ext-400-normal.0c3d1a1b05122bde2106.woff",
-    "static/media/gwendolyn-vietnamese-400-normal.woff2": "/static/media/gwendolyn-vietnamese-400-normal.3e4832312c8660f8fdcd.woff2",
-    "static/media/gwendolyn-vietnamese-400-normal.woff": "/static/media/gwendolyn-vietnamese-400-normal.af521fe4a4d27a9f3e2d.woff",
-    "index.html": "/index.html",
-    "main.07512e30.css.map": "/static/css/main.07512e30.css.map",
-    "main.86f44006.js.map": "/static/js/main.86f44006.js.map"
+    "main.css": "/meu-lugar-aconchegante/static/css/main.bd580639.css",
+    "main.js": "/meu-lugar-aconchegante/static/js/main.c889978f.js",
+    "static/media/gwendolyn-latin-400-normal.woff2": "/meu-lugar-aconchegante/static/media/gwendolyn-latin-400-normal.25ae21e5392ad073ca8f.woff2",
+    "static/media/gwendolyn-latin-ext-400-normal.woff2": "/meu-lugar-aconchegante/static/media/gwendolyn-latin-ext-400-normal.f550854062ce36ec39a8.woff2",
+    "static/media/gwendolyn-latin-400-normal.woff": "/meu-lugar-aconchegante/static/media/gwendolyn-latin-400-normal.3e89b38c04fcf572f7cd.woff",
+    "static/media/gwendolyn-latin-ext-400-normal.woff": "/meu-lugar-aconchegante/static/media/gwendolyn-latin-ext-400-normal.0c3d1a1b05122bde2106.woff",
+    "static/media/gwendolyn-vietnamese-400-normal.woff2": "/meu-lugar-aconchegante/static/media/gwendolyn-vietnamese-400-normal.3e4832312c8660f8fdcd.woff2",
+    "static/media/gwendolyn-vietnamese-400-normal.woff": "/meu-lugar-aconchegante/static/media/gwendolyn-vietnamese-400-normal.af521fe4a4d27a9f3e2d.woff",
+    "index.html": "/meu-lugar-aconchegante/index.html",
+    "main.bd580639.css.map": "/meu-lugar-aconchegante/static/css/main.bd580639.css.map",
+    "main.c889978f.js.map": "/meu-lugar-aconchegante/static/js/main.c889978f.js.map"
   },
   "entrypoints": [
-    "static/css/main.07512e30.css",
-    "static/js/main.86f44006.js"
+    "static/css/main.bd580639.css",
+    "static/js/main.c889978f.js"
   ]
 }
