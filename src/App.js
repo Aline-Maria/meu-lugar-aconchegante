@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom';
 function Layout() {
   const location = useLocation();
 
-  // Oculta cabeçalho para rotas que começam com "/post/" 
   const hideHeader = location.pathname.startsWith('/post/');
 
   return (
