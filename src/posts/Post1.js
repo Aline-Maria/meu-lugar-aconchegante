@@ -128,6 +128,21 @@ export default function Post1({ fundocardWidth = 900, fundocardHeight = 770 }) {
     };
   }, [draggingId, dragOffset]);
 
+  // ✅ BLOQUEIA SCROLL NO MOBILE DURANTE O ARRASTO
+  useEffect(() => {
+    function preventTouchScroll(e) {
+      if (draggingId !== null) {
+        e.preventDefault();
+      }
+    }
+
+    document.addEventListener('touchmove', preventTouchScroll, { passive: false });
+
+    return () => {
+      document.removeEventListener('touchmove', preventTouchScroll);
+    };
+  }, [draggingId]);
+
   function handlePointerDown(e, id) {
     if (id === 1 || id === 9) return;
 
@@ -179,15 +194,8 @@ export default function Post1({ fundocardWidth = 900, fundocardHeight = 770 }) {
   return (
     <>
       <header className="container mx-auto px-4 py-6 flex flex-col items-center md:flex-row md:justify-between">
-        <a
-          className="text-4xl font-architects text-black leading-tight whitespace-pre-line"
-          href="/meu-lugar-aconchegante"
-        >
-          Meu
-          <br />
-          Lugar
-          <br />
-          Aconchegante
+        <a className="text-4xl font-architects text-black leading-tight whitespace-pre-line" href="/meu-lugar-aconchegante">
+          Meu<br />Lugar<br />Aconchegante
         </a>
         <nav className="mt-4 md:mt-0 flex flex-wrap gap-6 text-lg-plus font-medium">
           <a className="hover:text-slick transition-colors duration-300" href="/meu-lugar-aconchegante">Início</a>
@@ -271,17 +279,12 @@ export default function Post1({ fundocardWidth = 900, fundocardHeight = 770 }) {
 
             <p className="text-lg">
               Eu deito neste sofá, olho pela janela e vejo o céu: não um muro com a tinta descascando,
-              não uma janela (e a vida) do vizinho. É o céu! Minhas plantas se abrem. Quem cria plantas sabe
-              que elas se abrem com a luz do sol. Lá fora também tem árvores e o cheiro do ar fica uma delícia
-              quando chove, mas hoje eu vejo o dourado do crepúsculo.
+              não uma janela (e a vida) do vizinho. É o céu! Minhas plantas se abrem...
             </p>
 
             <p className="text-lg">
-              Aqui eu estou protegida, eu posso respirar num ritmo mais calmo, eu posso ouvir as minhas músicas.
-              E eu nem sei por que comprei essa caixa de som enorme, não gosto de barulho, deixo o som ficar baixinho
-              e minha mente vai se acalmando… se acalmando… Eu sinto meu coração batendo, o céu está ficando
-              cada vez mais escuro. Tudo deu certo, no fim das contas. Eu tenho o meu lugar, é do jeito que eu sonhei.
-              Não sei se é muito cedo pra dizer isso, mas eu estou feliz!
+              Aqui eu estou protegida, eu posso respirar num ritmo mais calmo, eu posso ouvir as minhas músicas...
+              Tudo deu certo, no fim das contas. Eu tenho o meu lugar, é do jeito que eu sonhei.
             </p>
           </div>
         </div>
