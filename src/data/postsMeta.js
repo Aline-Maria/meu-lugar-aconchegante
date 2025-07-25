@@ -1,4 +1,3 @@
-// src/data/postsMeta.js
 const postsMeta = [
   { id: 1, title: 'Uma sala iluminada e cheia de plantas' },
   { id: 2, title: 'Varanda Charmosa' },

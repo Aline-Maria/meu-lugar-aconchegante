@@ -7,15 +7,12 @@ import PostCard from '../components/PostCard';
 export default function Home() {
   const navigate = useNavigate();
 
-  // Post 1 fixo
   const post1 = postsData.find(post => String(post.id) === '1');
 
-  // Outros posts (exceto post 1), ordenados do maior id para o menor
   const otherPosts = postsData
     .filter(post => String(post.id) !== '1')
-    .sort((a, b) => Number(b.id) - Number(a.id)); // decrescente
+    .sort((a, b) => Number(b.id) - Number(a.id)); 
 
-  // Estado para posts que vão carregando, começa vazio
   const [visibleExtraPosts, setVisibleExtraPosts] = useState([]);
 
   const [hasMore, setHasMore] = useState(otherPosts.length > 0);
@@ -27,7 +24,6 @@ export default function Home() {
       const nextPost = otherPosts[nextIndex];
 
       setTimeout(() => {
-        // Adiciona no topo da lista de extras (para que fique acima dos que já existem)
         setVisibleExtraPosts(prev => [nextPost, ...prev]);
         if (nextIndex + 1 === otherPosts.length) {
           setHasMore(false);
@@ -50,7 +46,6 @@ export default function Home() {
       loader={<p className="text-center text-cafe py-6">Carregando mais aconchego...</p>}
       className="flex flex-col items-center gap-10 py-8 bg-white"
     >
-      {/* Posts carregados dinamicamente */}
       {visibleExtraPosts.map(post => (
         <div
           key={post.id}
@@ -80,7 +75,6 @@ export default function Home() {
         </div>
       ))}
 
-      {/* Post 1 sempre por último */}
       <div
         key={post1.id}
         className="max-w-[1343px] w-full cursor-pointer"

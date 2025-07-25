@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import postComponents from '../posts'; // mapa Post1, Post2, ...
-
+import postComponents from '../posts'; 
 export default function PostPage() {
   const { id } = useParams();
   const numericId = Number(id);
