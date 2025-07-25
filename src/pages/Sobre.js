@@ -14,7 +14,6 @@ export default function Sobre() {
         />
       </div>
 
-      {/* Coluna do texto */}
       <div className="max-w-xl text-center md:text-left">
         <h2 className="text-4xl font-bold mb-6">Oi, eu sou a Aline</h2>
         <p className="mb-6 text-lg leading-relaxed">

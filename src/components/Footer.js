@@ -16,7 +16,6 @@ export default function Footer() {
           <div className="text-sm font-mono italic opacity-70">© 2025 All Rights Reserved</div>
         </div>
 
-        {/* Coluna 2 - Você me encontra aqui */}
         <div className="md:flex-1">
           <h2 className="font-bold text-2xl mb-4">Você me encontra aqui</h2>
           <nav className="flex flex-col gap-4 max-w-xs">

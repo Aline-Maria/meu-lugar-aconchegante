@@ -8,7 +8,6 @@ const imagens = [
     src: process.env.PUBLIC_URL + '/assets/card1.png',
     alt: 'Uma sala iluminada e cheia de plantas',
   },
-  // adicione mais imagens aqui
 ];
 
 export default function Galeria() {
