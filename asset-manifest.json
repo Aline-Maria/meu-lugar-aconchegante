@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/meu-lugar-aconchegante/static/css/main.1a7f5d09.css",
-    "main.js": "/meu-lugar-aconchegante/static/js/main.692d5b58.js",
+    "main.css": "/meu-lugar-aconchegante/static/css/main.c7cab6df.css",
+    "main.js": "/meu-lugar-aconchegante/static/js/main.7afdc2ca.js",
     "static/media/gwendolyn-latin-400-normal.woff2": "/meu-lugar-aconchegante/static/media/gwendolyn-latin-400-normal.25ae21e5392ad073ca8f.woff2",
     "static/media/gwendolyn-latin-ext-400-normal.woff2": "/meu-lugar-aconchegante/static/media/gwendolyn-latin-ext-400-normal.f550854062ce36ec39a8.woff2",
     "static/media/gwendolyn-latin-400-normal.woff": "/meu-lugar-aconchegante/static/media/gwendolyn-latin-400-normal.3e89b38c04fcf572f7cd.woff",
@@ -9,11 +9,11 @@
     "static/media/gwendolyn-vietnamese-400-normal.woff2": "/meu-lugar-aconchegante/static/media/gwendolyn-vietnamese-400-normal.3e4832312c8660f8fdcd.woff2",
     "static/media/gwendolyn-vietnamese-400-normal.woff": "/meu-lugar-aconchegante/static/media/gwendolyn-vietnamese-400-normal.af521fe4a4d27a9f3e2d.woff",
     "index.html": "/meu-lugar-aconchegante/index.html",
-    "main.1a7f5d09.css.map": "/meu-lugar-aconchegante/static/css/main.1a7f5d09.css.map",
-    "main.692d5b58.js.map": "/meu-lugar-aconchegante/static/js/main.692d5b58.js.map"
+    "main.c7cab6df.css.map": "/meu-lugar-aconchegante/static/css/main.c7cab6df.css.map",
+    "main.7afdc2ca.js.map": "/meu-lugar-aconchegante/static/js/main.7afdc2ca.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a7f5d09.css",
-    "static/js/main.692d5b58.js"
+    "static/css/main.c7cab6df.css",
+    "static/js/main.7afdc2ca.js"
   ]
 }
