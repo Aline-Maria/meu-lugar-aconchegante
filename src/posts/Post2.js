@@ -1,4 +1,5 @@
 import React, { useRef, useState, useLayoutEffect, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const icons = [
   { id: 1, src: "/assets/abaju.png", width: 130, height: 135, xPct: 63, yPct: 34.5 },
@@ -70,9 +71,7 @@ export default function Post2({ fundocardWidth = 900, fundocardHeight = 770 }) {
           }
           newPositions[id] = { xPct: newX, yPct: newY };
         }
-        if (needsUpdate) {
-          animationId = requestAnimationFrame(animate);
-        }
+        if (needsUpdate) animationId = requestAnimationFrame(animate);
         return newPositions;
       });
     };
@@ -146,29 +145,29 @@ export default function Post2({ fundocardWidth = 900, fundocardHeight = 770 }) {
   return (
     <>
       <header className="container mx-auto px-4 py-6 flex flex-col items-center md:flex-row md:justify-between">
-        <a
+        <Link
           className="text-4xl font-architects text-black leading-tight whitespace-pre-line"
-          href="/meu-lugar-aconchegante"
+          to="/"
         >
           Meu
           <br />
           Lugar
           <br />
           Aconchegante
-        </a>
+        </Link>
         <nav className="mt-4 md:mt-0 flex flex-wrap gap-6 text-lg-plus font-medium">
-          <a className="hover:text-slick transition-colors duration-300" href="/meu-lugar-aconchegante">
+          <Link className="hover:text-slick transition-colors duration-300" to="/">
             Início
-          </a>
-          <a className="hover:text-slick transition-colors duration-300" href="/meu-lugar-aconchegante/galeria">
+          </Link>
+          <Link className="hover:text-slick transition-colors duration-300" to="/galeria">
             Galeria
-          </a>
-          <a className="hover:text-slick transition-colors duration-300" href="/meu-lugar-aconchegante/sobre">
+          </Link>
+          <Link className="hover:text-slick transition-colors duration-300" to="/sobre">
             Sobre
-          </a>
-          <a className="hover:text-slick transition-colors duration-300" href="/meu-lugar-aconchegante/contato">
+          </Link>
+          <Link className="hover:text-slick transition-colors duration-300" to="/contato">
             Contato
-          </a>
+          </Link>
         </nav>
       </header>
 
@@ -236,15 +235,15 @@ export default function Post2({ fundocardWidth = 900, fundocardHeight = 770 }) {
             <h1 className="text-5xl font-gwendolyn font-bold leading-tight">{post.title}</h1>
 
             <p className="text-lg">
-              Este lugar é uma homenagem ao meu eu do passado, aquela que sobreviveu e (espero) está muito orgulhosa de mim agora. A lembrança mais forte da minha adolescência é passar a tarde toda lendo com meu gato no colo. Ainda me falta um gato. 
+              Este lugar é uma homenagem ao meu eu do passado, aquela que sobreviveu e (espero) está muito orgulhosa de mim agora. A lembrança mais forte da minha adolescência é passar a tarde toda lendo com meu gato no colo. Ainda me falta um gato.
             </p>
 
             <p className="text-lg">
-              Eu lia vários livros por mês, às vezes mais de um ao mesmo tempo. Me pergunto como deixei meu cérebro ficar tão disperso… Eu realmente acho que fui mais inteligente naquela época. Não sei se foi uma ato exagerado, mas espalhei vários livros que possam me interessar nesta sala para não cair na tentação de pegar o celular. Tem funcionado bem. 
+              Eu lia vários livros por mês, às vezes mais de um ao mesmo tempo. Me pergunto como deixei meu cérebro ficar tão disperso… Eu realmente acho que fui mais inteligente naquela época. Não sei se foi uma ato exagerado, mas espalhei vários livros que possam me interessar nesta sala para não cair na tentação de pegar o celular. Tem funcionado bem.
             </p>
 
             <p className="text-lg">
-              Batizei este lugar de “sala analógica” e é tão caótica quanto minha mente: tem pop art, tem móveis que não combinam, tem minhas plantinhas e aqui eu posso sonhar! Quando eu fico aqui, sinto que sou a versão mais fiel e honesta de mim mesma, e é desta forma que quero sair e levar meus sonhos para o mundo. 
+              Batizei este lugar de “sala analógica” e é tão caótica quanto minha mente: tem pop art, tem móveis que não combinam, tem minhas plantinhas e aqui eu posso sonhar! Quando eu fico aqui, sinto que sou a versão mais fiel e honesta de mim mesma, e é desta forma que quero sair e levar meus sonhos para o mundo.
             </p>
           </div>
         </div>
