@@ -1,11 +1,6 @@
-const postsData = [
-  {
-    id: '1',
-    title: 'Uma sala iluminada e cheia de plantas',
-    image: '/assets/card1.png',
-    text:
-      'Este espaço foi pensado para transmitir leveza, com muitas plantas, luz natural e detalhes em madeira clara.',
-  },
-];
+import { postsData as post1Data } from "../posts/Post1";
+import { postsData as post2Data } from "../posts/Post2"; 
 
-export default postsData;
+const combinedPostsData = [...post1Data, ...post2Data].slice(0, 2);
+
+export default combinedPostsData;

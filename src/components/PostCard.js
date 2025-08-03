@@ -2,7 +2,10 @@ import React from 'react';
 
 export default function PostCard({
   onClick,
-  customText = "É pra cá que eu venho quando minha alma pede um descanso. Eu que montei tudo isso: as plantas, minha poltrona marrom que já começou a desbotar, meu sofá de segunda mão..."
+  image,
+  title,
+  text,
+  customText,
 }) {
   return (
     <div
@@ -19,8 +22,8 @@ export default function PostCard({
       {/* LADO ESQUERDO - IMAGEM */}
       <div className="w-full md:w-1/2 h-64 md:h-full overflow-hidden">
         <img
-          src={process.env.PUBLIC_URL + '/assets/card1.png'}
-          alt="Imagem do post"
+          src={image}
+          alt={`Imagem do post: ${title}`}
           className="w-full h-full object-cover object-center"
           draggable={false}
         />
@@ -29,11 +32,11 @@ export default function PostCard({
       {/* LADO DIREITO - TÍTULO E TEXTO */}
       <div className="w-full md:w-1/2 h-auto md:h-full flex flex-col justify-center px-6 py-4 md:px-10 md:py-6 gap-4 bg-neve text-center md:text-left">
         <h1 className="text-2xl md:text-5xl font-gwendolyn font-bold leading-tight text-cafe">
-          Uma sala iluminada e cheia de plantas
+          {title}
         </h1>
 
         <p className="text-cafe font-hand text-base md:text-[18px] leading-relaxed">
-          {customText}
+          {text || customText}
         </p>
       </div>
     </div>

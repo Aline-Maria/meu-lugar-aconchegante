@@ -26,7 +26,7 @@ export default function PostsList() {
           <PostCard
             id={id}
             title={title}
-            image={image}
+            image={image && image.startsWith('/assets/') ? process.env.PUBLIC_URL + image : image}
             text={text}
           />
         </div>

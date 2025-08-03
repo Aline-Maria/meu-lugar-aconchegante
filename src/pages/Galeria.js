@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import GaleriaModal from '../components/GaleriaModal';
-import { Link } from 'react-router-dom';
 
 const imagens = [
+   {
+    id: 2,
+    src: process.env.PUBLIC_URL + '/assets/card2.png',
+    alt: 'Do meu cantinho de leitura eu sonho com o mundo!',
+  },
+
   {
     id: 1,
     src: process.env.PUBLIC_URL + '/assets/card1.png',
     alt: 'Uma sala iluminada e cheia de plantas',
   },
+
 ];
 
 export default function Galeria() {
